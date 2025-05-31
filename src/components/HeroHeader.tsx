@@ -1,6 +1,6 @@
 // components/HeroHeader.tsx
 "use client";
-import { useEffect, useState } from "react";
+
 import { LogoTitle } from "./LogoTitle";
 import { NavMenu } from "@/components/NavMenu";
 
