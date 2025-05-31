@@ -1,7 +1,7 @@
 // components/HeroHeader.tsx
 import { LogoTitle } from "./LogoTitle";
 import { NavMenu } from "./NavMenu";
-import { HeroSection } from "./HeroSection";
+import { HeroSection } from "@/components/HeroSection";
 
 export default function HeroHeader() {
   return (
