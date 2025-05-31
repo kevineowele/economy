@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -37,13 +38,31 @@ const Footer = () => {
           <p className="text-sm text-white/80 mb-2">Email : contact@economie.gouv.ga</p>
           <div className="flex gap-3 mt-4">
             <a href="#" aria-label="Facebook" className="hover:opacity-80">
-              <img src="/icons/facebook.svg" alt="Facebook" className="w-5 h-5" />
+              <Image 
+                src="/icons/facebook.svg" 
+                alt="Facebook" 
+                width={20} 
+                height={20}
+                className="w-5 h-5"
+              />
             </a>
             <a href="#" aria-label="Twitter" className="hover:opacity-80">
-              <img src="/icons/twitter.svg" alt="Twitter" className="w-5 h-5" />
+              <Image 
+                src="/icons/twitter.svg" 
+                alt="Twitter" 
+                width={20} 
+                height={20}
+                className="w-5 h-5"
+              />
             </a>
-            <a href="#" aria-label="YouTube" className="hover:opacity-80">
-              <img src="/icons/youtube.svg" alt="YouTube" className="w-5 h-5" />
+            <a href="#" aria-label="Youtube" className="hover:opacity-80">
+              <Image 
+                src="/icons/youtube.svg" 
+                alt="Youtube" 
+                width={20} 
+                height={20}
+                className="w-5 h-5"
+              />
             </a>
           </div>
         </div>

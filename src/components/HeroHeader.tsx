@@ -6,14 +6,6 @@ import { NavMenu } from "@/components/NavMenu";
 
 export default function HeroHeader() {
 
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 0);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
 
 
   return (
