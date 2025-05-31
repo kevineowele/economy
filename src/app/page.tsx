@@ -1,5 +1,5 @@
 // app/page.tsx
-import HeroHeader from "@/app/components/HeroHeader";
+import HeroHeader from "@/components/HeroHeader";
 
 export default function Home() {
   return (
