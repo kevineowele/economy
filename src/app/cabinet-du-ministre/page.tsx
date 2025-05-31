@@ -52,7 +52,7 @@ export default function CabinetPage() {
 
       <div className="text-sm text-gray-800 space-y-1">
         <p>
-          Le Ministre de l'Économie, des Finances, de la Dette et des Participations chargé de la lutte contre la vie chère : <strong>Henri-Claude Oyima</strong>
+          Le Ministre de l&apos;Économie, des Finances, de la Dette et des Participations chargé de la lutte contre la vie chère : <strong>Henri-Claude Oyima</strong>
         </p>
       </div>
     </main>

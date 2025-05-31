@@ -15,7 +15,7 @@ export function LogoTitle() {
       />
       <div>
         <h1 className="text-lg sm:text-xl font-bold text-[#002366]">
-          Ministère de l'Économie
+          Ministère de l&lsquo;Économie
         </h1>
         <p className="text-sm text-[#009639] leading-none">
           et des Participations

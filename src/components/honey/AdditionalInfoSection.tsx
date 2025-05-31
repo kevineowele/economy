@@ -14,7 +14,7 @@ const AdditionalInfoSection: React.FC = () => {
             Actions du Gouvernement
           </h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            Les actions du Gouvernement au quotidien sur des travaux de fond: suivez l'ensemble des actions, 
+            Les actions du Gouvernement au quotidien sur des travaux de fond: suivez l&lsquo;ensemble des actions, 
             mesures et réformes classées par thématiques et par enjeux.
           </p>
           
@@ -26,7 +26,7 @@ const AdditionalInfoSection: React.FC = () => {
               Compte-rendus des conseils des Ministres
             </h3>
             <p className="text-gray-700 mb-4">
-              Les compte-rendus du gouvernement au quotidien: suivez l'ensemble des compte-rendus classées par thématiques.
+              Les compte-rendus du gouvernement au quotidien: suivez l&lsquo;ensemble des compte-rendus classées par thématiques.
             </p>
             <button className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
               Consulter les comptes-rendus

@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="flex items-center gap-2 mb-4">
             <div className="w-2 h-8 bg-green-800"></div>
             <h3 className="text-xl font-bold uppercase">
-              Ministère de l'Économie et des Participations
+              Ministère de l&apos;Économie et des Participations
             </h3>
           </div>
           <p className="text-sm text-white/80">
@@ -53,7 +53,7 @@ const Footer = () => {
       <hr className="my-6 border-white/30" />
 
       <div className="text-center text-sm text-white/70">
-        © 2025 Ministère de l'Économie et des Participations — Design et développement par l'ANINF
+        © 2025 Ministère de l&apos;Économie et des Participations — Design et développement par l&apos;ANINF
       </div>
     </footer>
   );

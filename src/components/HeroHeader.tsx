@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { LogoTitle } from "./LogoTitle";
 import { NavMenu } from "@/components/NavMenu";
-import { HeroSection } from "./HeroSection";
 
 export default function HeroHeader() {
 

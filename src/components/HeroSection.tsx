@@ -9,7 +9,7 @@ export function HeroSection() {
           Pour une économie forte, inclusive et durable
         </h2>
         <p className="mt-4 text-lg text-gray-800">
-          Bienvenue sur le site officiel du Ministère de l'Économie et des Participations du Gabon
+          Bienvenue sur le site officiel du Ministère de l&lsquo;Économie et des Participations du Gabon
         </p>
         <div className="mt-8 flex justify-center gap-4">
           <Button className="bg-[#009639] hover:bg-[#007d2c] text-white">

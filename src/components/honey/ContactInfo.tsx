@@ -7,7 +7,7 @@ const ContactInfo: React.FC = () => {
         <h2 className="text-blue-700 border-b-2 border-gray-100 pb-2 mb-5 text-2xl">Contact</h2>
         
         <div className="mb-6">
-          <h3 className="text-slate-700 text-xl mb-4 font-medium">Ministère de l'Economie et des Participations</h3>
+          <h3 className="text-slate-700 text-xl mb-4 font-medium">Ministère de l&lsquo;Economie et des Participations</h3>
           <div className="space-y-2">
             <p className="text-gray-600">Immeuble ARAMBO (Boulevard Triomphal)</p>
             <p className="text-gray-600">Libreville, Gabon</p>
