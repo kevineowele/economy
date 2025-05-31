@@ -18,7 +18,7 @@ export default function ContactPage() {
         {/* Colonne droite - Informations (1/3 de largeur) */}
         <div className="lg:h-full lg:flex lg:flex-col">
           <ContactInfo />
-          <AdditionalInfoSection className="flex-grow"/>
+          <AdditionalInfoSection/>
         </div>
       </div>
     </main>
