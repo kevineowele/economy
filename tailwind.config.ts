@@ -1,14 +1,14 @@
 // tailwind.config.ts
 export default {
   theme: {
-    extend: {
-      colors: {
-        gabon: {
-          green: "#009639",
-          yellow: "#FFD700",
-          blue: "#002366",
-        },
+  extend: {
+    colors: {
+      gabon: {
+        blue: "#002366",
+        yellow: "#FFD700",
+        green: "#009639",
       },
     },
   },
+}
 };

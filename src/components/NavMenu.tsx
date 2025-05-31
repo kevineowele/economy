@@ -6,12 +6,14 @@ export function NavMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"; // bloquer scroll
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [isOpen]);
+  const originalOverflow = document.body.style.overflow;
+  document.body.style.overflow = isOpen ? "hidden" : originalOverflow;
+
+  return () => {
+    document.body.style.overflow = originalOverflow;
+  };
+}, [isOpen]);
+
 
   const menuItems = [
     { label: "Actualités", href: "#actualites" },
