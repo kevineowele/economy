@@ -1,4 +1,5 @@
 // components/HeroHeader.tsx
+<<<<<<< HEAD
 "use client";
 import { useEffect, useState } from "react";
 import { LogoTitle } from "./LogoTitle";
@@ -29,6 +30,7 @@ export default function HeroHeader() {
        
       </header>
     </>
+
 
   );
 }
