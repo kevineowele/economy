@@ -1,9 +1,11 @@
 // components/LogoTitle.tsx
 import Image from "next/image";
+import Link from "next/link";
 
 export function LogoTitle() {
   return (
     <div className="flex items-center space-x-4">
+      <Link href="/" className="flex items-center space-x-4">
       <Image
         src="/blason-gabon.png"
         alt="Blason du Gabon"
@@ -19,6 +21,7 @@ export function LogoTitle() {
           et des Participations
         </p>
       </div>
+    </Link>
     </div>
   );
 }

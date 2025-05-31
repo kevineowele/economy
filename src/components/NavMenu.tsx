@@ -20,7 +20,7 @@ export function NavMenu() {
     { label: "Publications", href: "#publications" },
     { label: "Ministère", href: "#ministere" },
     { label: "Services", href: "#services" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
