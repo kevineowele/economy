@@ -1,6 +1,8 @@
-// components/ActualitesEvenements.tsx
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const actualites = [
   {
@@ -24,53 +26,56 @@ const actualites = [
 
 const evenements = [
   { date: "31 Juil 2024", titre: "Sommet Chine-Afrique", lien: "#" },
-  {
-    date: "31 Juil 2024",
-    titre: "XIXe Sommet de la Francophonie",
-    lien: "#",
-  },
-  {
-    date: "01 Avr 2020",
-    titre: "Réunion des ministres de la zone franc",
-    lien: "#",
-  },
+  { date: "31 Juil 2024", titre: "XIXe Sommet de la Francophonie", lien: "#" },
+  { date: "01 Avr 2020", titre: "Réunion des ministres de la zone franc", lien: "#" },
   { date: "04 Fév 2020", titre: "Sommet Afrique-France 2020", lien: "#" },
-  {
-    date: "01 Jan 2023",
-    titre: "Formation sur le contrôle interne",
-    lien: "#",
-  },
+  { date: "01 Jan 2023", titre: "Formation sur le contrôle interne", lien: "#" },
 ];
 
 export function ActualitesEvenements() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Responsive handling
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <section className="bg-gray-50 py-12">
+    <section className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Colonne Actualités */}
-          <div className="md:col-span-2">
+        <div className="grid lg:grid-cols-3 gap-10">
+          {/* Actualités */}
+          <div className="lg:col-span-2">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Actualités</h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-6">
               {actualites.map((actu, i) => (
-                <div key={i} className="bg-white shadow rounded-lg overflow-hidden">
+                <div
+                  key={i}
+                  className="bg-white shadow-md rounded-lg overflow-hidden transition-transform hover:scale-[1.01]"
+                >
                   <Image
                     src={actu.image}
                     alt={actu.titre}
                     width={600}
                     height={300}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-44 object-cover"
                   />
                   <div className="p-4">
                     <p className="text-sm text-gray-500">{actu.date}</p>
-                    <h3 className="text-lg font-semibold text-gray-800 mt-1">
+                    <h3 className="text-lg font-semibold text-gray-800 mt-1 line-clamp-2">
                       {actu.titre}
                     </h3>
-                    <p className="text-sm text-gray-600 mt-2">{actu.texte}</p>
+                    <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+                      {actu.texte}
+                    </p>
                     <Link
                       href={actu.lien}
                       className="text-green-700 font-medium text-sm mt-3 inline-block hover:underline"
                     >
-                      Lire plus
+                      Lire plus →
                     </Link>
                   </div>
                 </div>
@@ -78,20 +83,20 @@ export function ActualitesEvenements() {
             </div>
           </div>
 
-          {/* Colonne Évènements */}
+          {/* Évènements */}
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Évènements</h2>
             <ul className="space-y-4">
-              {evenements.map((event, i) => (
-                <li key={i} className="bg-blue-800 text-white p-4 rounded-lg shadow">
+              {(isMobile ? evenements.slice(0, 2) : evenements).map((event, i) => (
+                <li key={i} className="bg-blue-800 text-white p-4 rounded-lg shadow-sm hover:bg-blue-700 transition">
                   <p className="text-sm font-semibold">{event.date}</p>
-                  <p className="text-base">{event.titre}</p>
+                  <p className="text-base mt-1">{event.titre}</p>
                 </li>
               ))}
               <li>
                 <Link
                   href="#"
-                  className="block bg-blue-900 text-white text-center py-2 rounded-lg hover:bg-blue-700 mt-2"
+                  className="block bg-blue-900 text-white text-center py-2 rounded-lg hover:bg-blue-700 mt-2 transition"
                 >
                   Voir tous les évènements 📅
                 </Link>

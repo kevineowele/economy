@@ -16,10 +16,10 @@ export function NavMenu() {
 
 
   const menuItems = [
-    { label: "Actualités", href: "#actualites" },
-    { label: "Publications", href: "#publications" },
+    { label: "Actualités", href: "/actualites" },
+    { label: "Publications", href: "/publications" },
     { label: "Ministère", href: "/cabinet-du-ministre" },
-    { label: "Services", href: "#services" },
+    { label: "Services", href: "/services" },
     { label: "Contact", href: "/contact" },
   ];
 

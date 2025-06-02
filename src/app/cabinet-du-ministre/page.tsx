@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CabinetPage() {
+export default async function CabinetPage() {
+  // Simuler une attente de 3 secondes
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+
   return (
     <main className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-4">CABINET DU MINISTRE</h1>
@@ -58,4 +61,3 @@ export default function CabinetPage() {
     </main>
   );
 }
-
