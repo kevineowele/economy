@@ -6,21 +6,21 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    title: "La 4ᵉ édition de la conférence Africa One Market, organisée[…] ",
+    title: "La 4ᵉ édition de la conférence Africa One Market",
     description:
-      "Le Ministre de l’Économie et des Participations a pris part aux travaux de l’Africa One Market 2025 qui se tient actuellement à Libreville du 5 au 7 mai. Présent à[…]",
+      "Le Ministre de l’Économie a participé à l’Africa One Market 2025 à Libreville, du 5 au 7 mai, visant à renforcer l'intégration régionale.",
     image: "/africa-one-market.jpg",
   },
   {
     title: "Lancement du Fonds Souverain pour l'Innovation",
     description:
-      "Un fonds destiné à stimuler les startups locales a été lancé avec le soutien du ministère de l'Économie et des Investissements stratégiques.",
+      "Le ministère a inauguré un fonds stratégique pour soutenir les startups locales et dynamiser l'écosystème entrepreneurial.",
     image: "/fonds-innovation.jpg",
   },
   {
     title: "Signature de l'accord commercial panafricain",
     description:
-      "Un accord historique visant à renforcer le commerce intra-africain a été signé, ouvrant de nouvelles opportunités pour les PME.",
+      "Un accord historique pour faciliter le commerce intra-africain a été signé, stimulant les PME et les investissements régionaux.",
     image: "/accord-commercial.jpg",
   },
 ];
@@ -37,60 +37,61 @@ export function AlaUneSection() {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
+    const interval = setInterval(() => nextSlide(), 7000);
     return () => clearInterval(interval);
   }, []);
 
   const { title, description, image } = slides[currentIndex];
 
   return (
-    <section className="bg-gradient-to-br from-[#d4af37] via-[#f5f5f5] to-[#b0a160] py-16 text-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-extrabold mb-10 text-center tracking-wide">
+    <section className="bg-gradient-to-br from-white via-[#f9f9f9] to-[#f5f5eb] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden border-t border-b border-[#FFD700]/50">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#002366] mb-12">
           À la une
         </h2>
 
-        <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-10 transition-all duration-700 ease-in-out">
-          {/* Texte principal */}
-          <div className="bg-white/70 backdrop-blur-md rounded-xl shadow-xl p-6 w-full md:w-1/2 transition-transform hover:scale-[1.02]">
-            <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
-              {title}
-            </h3>
-            <p className="text-sm sm:text-base text-gray-700">{description}</p>
-            <button className="mt-4 inline-block text-sm font-semibold text-[#d4af37] hover:text-[#b8860b] transition-colors underline">
-              Lire la suite
-            </button>
-          </div>
-
-          {/* Image illustrative */}
-          <div className="relative w-full md:w-1/2 aspect-video rounded-xl overflow-hidden shadow-2xl border-4 border-white/40 hover:scale-[1.01] transition-transform duration-300">
+        <div className="flex flex-col md:flex-row items-center gap-10 group transition-all">
+          {/* Image */}
+          <div className="relative w-full md:w-1/2 aspect-[16/9] rounded overflow-hidden shadow-xl border border-gray-200 transition-transform duration-500 group-hover:scale-[1.01]">
             <Image
               src={image}
               alt={title}
               fill
-              className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-center transition-opacity duration-500"
+              priority
             />
+          </div>
+
+          {/* Texte */}
+          <div className="w-full md:w-1/2 bg-white/80 backdrop-blur-md rounded p-6 md:p-8 shadow-md border border-gray-100">
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
+              {title}
+            </h3>
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              {description}
+            </p>
+            <button className="mt-4 inline-block text-sm font-medium text-[#009639] hover:text-[#006b2d] transition-colors underline">
+              Lire la suite
+            </button>
           </div>
         </div>
 
-        {/* Flèches de navigation */}
-        <div className="mt-10 flex justify-center md:justify-end gap-4">
+        {/* Navigation */}
+        <div className="mt-8 flex justify-center gap-6">
           <button
             onClick={prevSlide}
-            className="p-2 bg-white/40 rounded-full hover:bg-[#d4af37]/70 transition"
-            aria-label="Slide précédent"
+            aria-label="Précédent"
+            className="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full shadow hover:bg-[#FFD700]/20 transition"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-800" />
+            <ChevronLeft className="w-5 h-5 text-[#002366]" />
           </button>
           <button
             onClick={nextSlide}
-            className="p-2 bg-white/40 rounded-full hover:bg-[#d4af37]/70 transition"
-            aria-label="Slide suivant"
+            aria-label="Suivant"
+            className="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full shadow hover:bg-[#FFD700]/20 transition"
           >
-            <ChevronRight className="w-5 h-5 text-gray-800" />
+            <ChevronRight className="w-5 h-5 text-[#002366]" />
           </button>
         </div>
       </div>

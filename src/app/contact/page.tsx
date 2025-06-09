@@ -3,9 +3,7 @@ import ContactInfo from "@/components/honey/ContactInfo";
 import SocialLinks from "@/components/honey/SocialLinks";
 import AdditionalInfoSection from '@/components/honey/AdditionalInfoSection';
 
-export default async function ContactPage() {
-
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+export default function ContactPage() {
 
   return (
     <main className="container mx-auto p-6 max-w-7xl">

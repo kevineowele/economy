@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 const actualites = [
   {
@@ -33,16 +32,6 @@ const evenements = [
 ];
 
 export function ActualitesEvenements() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Responsive handling
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <section className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,7 +43,7 @@ export function ActualitesEvenements() {
               {actualites.map((actu, i) => (
                 <div
                   key={i}
-                  className="bg-white shadow-md rounded-lg overflow-hidden transition-transform hover:scale-[1.01]"
+                  className="bg-white shadow-md rounded-xl overflow-hidden transform transition hover:scale-[1.02]"
                 >
                   <Image
                     src={actu.image}
@@ -63,8 +52,8 @@ export function ActualitesEvenements() {
                     height={300}
                     className="w-full h-44 object-cover"
                   />
-                  <div className="p-4">
-                    <p className="text-sm text-gray-500">{actu.date}</p>
+                  <div className="p-5">
+                    <p className="text-xs text-gray-500">{actu.date}</p>
                     <h3 className="text-lg font-semibold text-gray-800 mt-1 line-clamp-2">
                       {actu.titre}
                     </h3>
@@ -83,26 +72,37 @@ export function ActualitesEvenements() {
             </div>
           </div>
 
-          {/* Évènements */}
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Évènements</h2>
-            <ul className="space-y-4">
-              {(isMobile ? evenements.slice(0, 2) : evenements).map((event, i) => (
-                <li key={i} className="bg-blue-800 text-white p-4 rounded-lg shadow-sm hover:bg-blue-700 transition">
-                  <p className="text-sm font-semibold">{event.date}</p>
-                  <p className="text-base mt-1">{event.titre}</p>
-                </li>
-              ))}
-              <li>
-                <Link
-                  href="#"
-                  className="block bg-blue-900 text-white text-center py-2 rounded-lg hover:bg-blue-700 mt-2 transition"
-                >
-                  Voir tous les évènements 📅
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Événements - Timeline verticale */}
+<div>
+  <h2 className="text-3xl font-bold text-gray-900 mb-6">Évènements</h2>
+  <div className="relative border-l border-blue-300 space-y-8 pl-4">
+    {evenements.map((event, i) => (
+      <div
+        key={i}
+        className="relative pl-6 group"
+      >
+        {/* Point de timeline */}
+        <span className="absolute left-[-10px] top-1 w-4 h-4 bg-blue-800 rounded-full border-2 border-white group-hover:scale-110 transition-transform duration-200"></span>
+
+        <div className="bg-blue-800 text-white rounded-xl shadow-md p-4 hover:bg-blue-700 transition">
+          <p className="text-sm font-semibold">{event.date}</p>
+          <p className="text-base mt-1">{event.titre}</p>
+        </div>
+      </div>
+    ))}
+
+    {/* Lien vers tous les événements */}
+    <div className="pt-4">
+      <Link
+        href="#"
+        className="inline-block bg-blue-900 text-white text-center px-6 py-2 rounded-xl hover:bg-blue-700 transition font-medium"
+      >
+        Voir tous les évènements 📅
+      </Link>
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
     </section>

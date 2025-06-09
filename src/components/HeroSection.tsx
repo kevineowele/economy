@@ -1,101 +1,77 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Mail, FileText, CalendarCheck } from "lucide-react"; // Icônes Lucide
+import Image from "next/image";
 
 export function HeroSection() {
-  const [points, setPoints] = useState<
-    {
-      cx: number;
-      cy: number;
-      r: number;
-      duration: number;
-      delay: number;
-    }[]
-  >([]);
-
-  useEffect(() => {
-    const generatedPoints = Array.from({ length: 120 }, () => ({
-      cx: Math.random() * 1000,
-      cy: Math.random() * 1000,
-      r: Math.random() * 50 + 1,
-      duration: Math.random() * 5 + 3,
-      delay: Math.random() * 5,
-    }));
-    setPoints(generatedPoints);
-  }, []);
-
   return (
-    <section className="relative bg-gradient-to-br from-[#009639]/10 via-[#FFD700]/10 to-[#002366]/10 py-36 overflow-hidden">
-      {/* Animations CSS */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-4px);
-          }
-        }
-        @keyframes flicker {
-          0%, 100% {
-            opacity: 0.3;
-          }
-          50% {
-            opacity: 0.8;
-          }
-        }
-      `}</style>
+    <section className="relative bg-white py-32 overflow-hidden border-b border-[#FFD700]">
+      {/* Image de fond floutée */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero.jpg"
+          alt="Ministère de l'économie Gabon"
+          className="w-full h-full object-cover object-center blur-sm scale-105 opacity-100"
+        />
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm" />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(#d1e6d8_1px,transparent_1px)] [background-size:28px_28px] opacity-10"
+          aria-hidden="true"
+        />
+      </div>
 
-      {/* SVG décoratif */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none z-0"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
-        viewBox="0 0 1000 1000"
-      >
-        <defs>
-          <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#009639" />
-            <stop offset="50%" stopColor="#FFD700" />
-            <stop offset="100%" stopColor="#002366" />
-          </linearGradient>
-        </defs>
-
-        {points.map((point, index) => (
-          <circle
-            key={index}
-            cx={point.cx}
-            cy={point.cy}
-            r={point.r}
-            fill="url(#gradient)"
-            style={{
-              opacity: 0.5,
-              animation: `float ${point.duration}s ease-in-out ${point.delay}s infinite, flicker ${point.duration + 1}s ease-in-out ${point.delay}s infinite`,
-              transformOrigin: `${point.cx}px ${point.cy}px`,
-            }}
-          />
-        ))}
-      </svg>
-
-      {/* Contenu */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#002366] animate-fade-in-down">
-          Pour une économie forte, inclusive et durable
-        </h2>
-        <p className="mt-3 text-base text-gray-800">
-          Bienvenue sur le site officiel du Ministère de l’Économie et des Participations du Gabon
+      {/* Contenu principal */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#002366] tracking-tight leading-tight drop-shadow-md">
+          Moderniser l&apos;économie pour un Gabon prospère
+        </h1>
+        <p className="mt-6 text-lg sm:text-xl text-gray-800 max-w-3xl mx-auto drop-shadow-sm">
+          Découvrez les actions, réformes et services proposés par le Ministère de l&apos;Économie et des Participations, pour soutenir les citoyens, les entreprises et les investisseurs.
         </p>
-        <div className="mt-6 flex justify-center gap-4 flex-wrap">
-          <Button className="bg-[#009639] hover:bg-[#007d2c] text-white">
-            Découvrir nos missions
+        <div className="mt-8 flex justify-center gap-4 flex-wrap">
+          <Button className="bg-[#009639] hover:bg-[#007d2c] text-white text-base px-6 py-3">
+            Nos priorités
           </Button>
           <Button
             variant="outline"
-            className="border-[#009639] text-[#009639] hover:bg-[#009639]/10"
+            className="border-[#009639] text-[#009639] hover:bg-[#009639]/10 text-base px-6 py-3"
           >
-            Accéder aux services
+            Accès aux e-services
           </Button>
+        </div>
+
+        {/* Blocs informatifs */}
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          {/* Bloc 1 : Publications des contrats */}
+          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 hover:shadow-md transition">
+            <FileText className="text-[#009639] w-8 h-8 mb-4" />
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Publications des contrats</h3>
+            <p className="text-gray-700 mb-4">
+              Retrouvez dans cette section la publication des contrats pétroliers, miniers et forestiers.
+            </p>
+            <Button variant="link" className="text-[#009639] p-0">Voir les contrats →</Button>
+          </div>
+
+          {/* Bloc 2 : Demande d'audience */}
+          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 hover:shadow-md transition">
+            <CalendarCheck className="text-[#009639] w-8 h-8 mb-4" />
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Demande d&apos;audience</h3>
+            <p className="text-gray-700 mb-4">
+              Réalisez en ligne votre demande d&apos;audience auprès du cabinet du Ministère de l&apos;Économie.
+            </p>
+            <Button variant="link" className="text-[#009639] p-0">Faire une demande →</Button>
+          </div>
+
+          {/* Bloc 3 : Contactez-nous */}
+          <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 hover:shadow-md transition">
+            <Mail className="text-[#009639] w-8 h-8 mb-4" />
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Contactez-nous</h3>
+            <p className="text-gray-700 mb-4">
+              Cette section vous permet de contacter le Ministère de l&apos;Économie et des Participations.
+            </p>
+            <Button variant="link" className="text-[#009639] p-0">Envoyer un message →</Button>
+          </div>
         </div>
       </div>
     </section>

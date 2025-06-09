@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function CabinetPage() {
+export default function CabinetPage() {
   // Simuler une attente de 3 secondes
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-8">
